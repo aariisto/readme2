@@ -16,5 +16,8 @@ GRANT SELECT, DELETE, INSERT ON sae_velib.recherches TO 'user_velib'@'localhost'
 -- privilèges sur la table users (SELECT, UPDATE, INSERT)
 GRANT SELECT, UPDATE, INSERT ON sae_velib.users TO 'user_velib'@'localhost';
 
+GRANT SELECT ON sae_velib.recherches_vue TO 'user_velib'@'localhost';
+
+GRANT SELECT ON sae_velib.reservations_vue TO 'user_velib'@'localhost';
 -- Appliquer les modifications
 FLUSH PRIVILEGES;

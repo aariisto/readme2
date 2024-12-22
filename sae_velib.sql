@@ -9,14 +9,14 @@ Mise en place :  tout d’abord installer PostgreSQL sur votre pc, lorsqu’on l
 
 */
 
-CREATE DATABASE sae_velib;
+CREATE DATABASE user;
 
 /*
 2ème étape Connexion à la base de donnée :
 On relance le shell et on se connecte directement
 */ 
 
-USE sae_velib;
+USE user;
 
 
 -- 3eme étape Création des tables : 
@@ -93,7 +93,7 @@ LEFT JOIN
 
 -- 2eme vue, est un recapitulatif de la reservation
 
-CREATE VIEW reservation_vue AS
+CREATE VIEW reservations_vue AS
 SELECT
     *
 FROM
