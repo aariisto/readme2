@@ -1,4 +1,4 @@
--- Créer un utilisateur nommé 'user_velib' avec un mot de passe 'saevelib'
+-- Créer un utilisateur nommé 'user_velib' avec un mot de passe 'saevelib' "C'EST MIEUX UTILISER UN MOT DE PASSE PLUS COMPLEXE"
 CREATE USER 'user_velib'@'localhost' IDENTIFIED BY 'saevelib';
 
 -- privilèges sur la table stations (uniquement SELECT)
@@ -16,8 +16,10 @@ GRANT SELECT, DELETE, INSERT ON sae_velib.recherches TO 'user_velib'@'localhost'
 -- privilèges sur la table users (SELECT, UPDATE, INSERT)
 GRANT SELECT, UPDATE, INSERT ON sae_velib.users TO 'user_velib'@'localhost';
 
+-- privilèges sur les vues (SELECT)
 GRANT SELECT ON sae_velib.recherches_vue TO 'user_velib'@'localhost';
 
 GRANT SELECT ON sae_velib.reservations_vue TO 'user_velib'@'localhost';
+
 -- Appliquer les modifications
 FLUSH PRIVILEGES;

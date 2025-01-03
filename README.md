@@ -21,15 +21,15 @@
 
 # 1. Description
 
-Dans ce livrable, il nous a été demandé de concevoir une base de données pour notre site Vélib', qui joue un rôle fondamental dans le fonctionnement du projet. Cette base de données est conçue pour centraliser et organiser l’ensemble des données nécessaires, notamment celles liées aux utilisateurs. Elle servira à stocker des informations cruciales, telles que les comptes des utilisateurs , leurs historiques de recherches, ainsi que leurs réservations.
+Dans le cadre de ce livrable, nous devions élaborer une base de données utile, pour notre site Vélib’, qui a un rôle majeur pour le projet, car elle permet de centraliser et d’organiser toutes les données liées à ceux-ci, les utilisateurs, mais également les données et informations qui leur sont relatives, à savoir leurs comptes, leurs historiques de recherche, ainsi que les réservations effectuées.
 
-En résumé, cette base de données constitue le cœur du projet Vélib', car elle garantit non seulement le bon fonctionnement du site, mais aussi une expérience utilisateur fluide, rapide et personnalisée.
+Pour résumer, c’est cette base de données qui est au centre du projet Vélib’, qui permet d’assurer le fonctionnement du site, mais aussi de donner la possibilité à l’usager d’avoir une expérience optimale, simple, rapide et adaptée.
 
 <br>
 
 # 2. Objectifs de la base de donnée
 
-La base de données a pour objectif principal de soutenir le fonctionnement du site Vélib'. Elle doit permettre de :
+L'objectif principal de cette base de données est de soutenir le fonctionnement du site Vélib'. Elle doit permettre de :
 
 ### Gérer les comptes utilisateurs :
 
@@ -39,9 +39,9 @@ La base de données a pour objectif principal de soutenir le fonctionnement du s
 
 ### Stocker l'historique des recherches et des réservations :
 
-- Enregistrer toutes les recherches effectuées (adresse ou nom de station) par les utilisateurs.
+- Enregistrer toutes les recherches effectuées (**adresse ou nom de station**) par les utilisateurs.
 - Permettre à l'utilisateur de consulter l'historique de ses recherches et de ses réservations.
-- Offrir la possibilité à l'utilisateur de supprimer l'historique de ses recherches s'il le souhaite.
+- Offrir à l'utilisateur la possibilité de supprimer l'historique de ses recherches s'il le souhaite.
 - Conserver l'historique des réservations, mais sans permettre à l'utilisateur de le modifier ou de le supprimer.
 
 ### Optimisation des données :
@@ -103,7 +103,7 @@ La base de données a pour objectif principal de soutenir le fonctionnement du s
 
 # 3. Structure de la base de données
 
-La base de données est composée de plusieurs tables interconnectées et de vues pour gérer les informations nécessaires au fonctionnement du site Vélib'.
+La base de données est composée de 5 tables interconnectées et 2 vues pour gérer les informations nécessaires au fonctionnement du site Vélib'.
 
 Voici une description détaillée des tables et de leurs relations :
 
@@ -170,7 +170,7 @@ Voici une description détaillée des tables et de leurs relations :
 
 ## 3.2 Vues
 
-Les vues dans une base de données simplifient l'accès aux données en masquant la complexité des tables sous-jacentes. Elles facilitent également la gestion des requêtes complexes en regroupant des jointures et des filtres.
+Les vues d’une base de données rendent plus simple l’accès aux données en cachant la complexité des tables sous-jacentes et en rendant moins complexe la gestion des requêtes complexes, en regroupant jointures et filtres.
 
 ### 1. Vue `recherches_vue`
 
@@ -218,7 +218,7 @@ La base de données est construite sur un modèle relationnel solide :
 
 # 4. Création d'un utilisateur pour notre base de données
 
-Pour limiter l'accès à notre base de données, nous avons créé un utilisateur nommé `user_velib`:
+Pour renforcer la sécurité de notre base de données, nous avons créé un utilisateur nommé `user_velib`:
 
 ```sql
 -- Créer un utilisateur nommé 'user_velib' avec un mot de passe 'saevelib'
@@ -285,7 +285,8 @@ Après la création de notre nouvel utilisateur, nous lui accorderons des privil
    L'utilisateur `user_velib` a uniquement un privilège de lecture (SELECT) sur les vues , ce qui signifie qu'il peut uniquement consulter les données
    <br>
 
-Cette configuration permet de sécuriser l'accès à la base de données en restreignant les privilèges en fonction des besoins spécifiques de l'utilisateur. Ainsi, nous garantissons que l'utilisateur peut accéder aux données nécessaires tout en limitant les actions possibles pour réduire les risques de modification non autorisée. De plus, dans le backend du site, des mesures de sécurité seront mises en place pour éviter l'injection de requêtes malveillantes, assurant ainsi l'intégrité et la sécurité des données et des interactions avec la base de données.
+Cette configuration va nous permettre de sécuriser l’accès à la base de données en restreignant les privilèges d’accès en fonction du besoin prescrit de l’utilisateur, cela afin de garantir qu’il puisse avoir accès aux données nécessaires tout en évitant qu’il ne puisse effectuer certaines actions qui pourraient permettre des modifications non autorisées. Également, nous allons ajouter dans le backend du site des mesures de sécurité pour s’assurer que les requêtes ne soient pas contournées par des injections de requêtes malveillantes, assurant ainsi l’intégrité et la sécurité des données et interactions avec la base de données.
+
 <br>
 
 **_Le fichier contenant la création de l'utilisateur : `Velib_SAE_USER.sql`_**
@@ -520,8 +521,18 @@ python /chemin/vers/Insertion.py
 
 **_Après avoir suivi toutes ces étapes sans erreur de code, la base de données est prête à être utilisée dans notre application web._**
 
-Pour tester le bon fonctionnement de la base de données, il est recommandé d'exécuter certaines requêtes avec l'utilisateur `user_velib`. L'idée est de vérifier que les opérations courantes, comme la sélection, l'insertion ou la mise à jour des données, se déroulent correctement.
+Afin de vérifier le bon fonctionnement de la base de données ainsi que le développement de l’application, il convient d’effectuer certaines requêtes avec l’utilisateur `user_velib`. Dans ce cas, il s’agit de procéder à une validation du bon déroulement des opérations de sélection, d’insertion ou de mise à jour, entre autres.
 
-De plus, il peut tester l'insertion de nouvelles données ou la mise à jour de celles existantes pour vérifier que les modifications sont correctement enregistrées dans la base. En parallèle, il est utile de tester des requêtes que l'utilisateur ne devrait pas être autorisé à exécuter, comme la suppression ou la modification des données dans certaines tables. Si ces requêtes génèrent des erreurs, cela indique que les restrictions sont bien appliquées et que la sécurité de la base de données est correctement configurée.
+Il est également intéressant de tester l’insertion de nouvelles données ou la mise à jour de données existantes de manière à s’assurer que la base enregistre bien les modifications. Dans le même temps, il est utile de tenter des requêtes que l’utilisateur ne pourrait pas exécuter, de la suppression ou de la mise à jour de données dans certaines tables, par exemple. Si une requête génère une erreur, cela montre que les restrictions sont bien appliquées et que la sécurité de la base est correcte.
 
-Si les requêtes autorisées s'exécutent sans erreur et retournent les résultats attendus, cela confirme que la base de données fonctionne correctement et que l'utilisateur dispose des permissions nécessaires pour interagir avec elle.
+Si les requêtes autorisées s’exécutent sans erreur et retournent les résultats attendus, cela signifie que la base fonctionne et que l’utilisateur a bien les droits requis pour interagir avec elle.
+
+# 7. Groupe:
+
+Ce projet a été réalisé dans le cadre d'un travail de groupe, les membres de groupe sont:
+
+-Tassadit OUZIA.
+-Kenza HALIL.
+-Yannel AISSANI.
+-Oumaima EL KHADRAOUI.
+-Youssouf REZZAG MAHCENE.

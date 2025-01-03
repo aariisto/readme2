@@ -1,8 +1,6 @@
 /* Script de création des tables 
-SGBD Utilisé : PSQL (SQL SHELL)
-Mise en place :  tout d’abord installer PostgreSQL sur votre pc, lorsqu’on l’installe un dossier sera créé dans votre pc avec :
-- PostgreSQL (SGBD)
-- SQL SHELL (on exécutera les requêtes SQL dedans)
+SGBD Utilisé : MYSQL
+
 
 1ère étape Création de la base de donnée que l’on va utiliser :
 (Veillez à bien respecter l'ordre de création des tables)
@@ -88,7 +86,7 @@ SELECT
 FROM 
     recherches
 LEFT JOIN 
-    stations USING(station_id);  -- Suppose une table station_details contenant lat/lon
+    stations USING(station_id);
 
 
 -- 2eme vue, est un recapitulatif de la reservation
